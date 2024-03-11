@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Edad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle> Adivinaremos tu Edad segun su nombre</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating"> Introducir el nombre: </ion-label>
+        <ion-input [(ngModel)]="name"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button (click)="agePredictor()" expand="block"> Adivinar</ion-button>
+  </ion-card>
+  <div *ngIf="age">
+    <div class="resultado">
+      {{ name }} es un/una {{ etapa }}  de {{ age }} años
+    </div>
+    <img [src]="imageUrl" alt="Imagen de acuerdo a la edad" class="imagenes">
+  </div>
+</ion-content>

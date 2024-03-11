@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Clima</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle> Te mostraremos el clima</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating"> Introducir la latitud: </ion-label>
+        <ion-input [(ngModel)]="lat"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> Introducir la longitud: </ion-label>
+        <ion-input [(ngModel)]="long"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button (click)="weather()" expand="block"> Mostrar</ion-button>
+
+    <ion-list *ngFor="let data of degrees">
+      <ion-item>
+        Clima en {{data.city_name}}:
+      </ion-item>
+      <ion-item>
+        - Fecha: {{data.ob_time}}
+      </ion-item>
+      <ion-item>
+        - Temperatura: {{data.temp}} °C
+      </ion-item>
+      <ion-item>
+        - Pronostico: {{data.weather.description}}
+      </ion-item>
+      <ion-item>
+        - Precipitacion: {{data.precip}}
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

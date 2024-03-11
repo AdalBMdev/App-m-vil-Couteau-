@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Wordpress</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle> The New York Times: Noticias del dia </ion-card-subtitle>
+    </ion-card-header>
+
+    <img src="assets/logonyt.png" style="width: 250px; margin:auto; display: flex;">
+
+    <ion-button (click)="showNews()" expand="block"> Mostrar noticias de hoy </ion-button>
+
+    <ion-list *ngFor="let info of link" style="margin-top: 2rem;">
+      <div style="margin-bottom: 2rem;">
+        <b>{{info.title}}</b>
+        <br> {{info.abstract}}
+        <br> - More info:        {{info.url}}
+      </div>
+    </ion-list>
+  </ion-card>
+</ion-content>
